@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZennX.AbbottUpiExtractor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8e2cccd2cfcac8751d0b0620a4d381afcf3ef35")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5a3eda6270672aded2b43eef1771aba5352a0c3")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZennX.AbbottUpiExtractor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZennX.AbbottUpiExtractor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
