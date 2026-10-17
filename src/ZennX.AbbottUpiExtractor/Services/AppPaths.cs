@@ -5,10 +5,8 @@ namespace ZennX.AbbottUpiExtractor.Services
 {
     public static class AppPaths
     {
-        private static readonly string AppDataFolder = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-            "ZennX",
-            "AbbottCashbackExtractor");
+        // Store database and data in the application's executing directory
+        private static readonly string AppDataFolder = AppDomain.CurrentDomain.BaseDirectory;
 
         public static string GetAppDataFolder()
         {

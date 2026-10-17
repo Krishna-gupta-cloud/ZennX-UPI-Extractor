@@ -75,7 +75,7 @@ namespace ZennX.AbbottUpiExtractor.UI.Views
                 ForeColor = Theme.TextSecondary
             };
 
-            var btnOpenDataFolder = Theme.CreateSecondaryButton("📂 Open LocalAppData Folder", 220, 36);
+            var btnOpenDataFolder = Theme.CreateSecondaryButton("📂 Open App Directory", 180, 36);
             btnOpenDataFolder.Location = new Point(16, 105);
             btnOpenDataFolder.Click += (s, e) =>
             {
