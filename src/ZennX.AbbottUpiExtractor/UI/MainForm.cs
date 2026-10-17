@@ -105,20 +105,41 @@ namespace ZennX.AbbottUpiExtractor.UI
             var sidebarFooter = new Panel
             {
                 Dock = DockStyle.Bottom,
-                Height = 45,
+                Height = 65,
                 BackColor = Color.FromArgb(15, 20, 31),
-                Padding = new Padding(12, 8, 12, 8)
+                Padding = new Padding(10, 6, 10, 6)
+            };
+
+            var lblDeveloper = new Label
+            {
+                Text = "Developed by Krishna Gupta",
+                Font = new Font("Segoe UI", 8.2f, FontStyle.Bold),
+                ForeColor = Theme.ZennXOrange,
+                Dock = DockStyle.Top,
+                TextAlign = ContentAlignment.MiddleCenter
+            };
+
+            var lblInternalUse = new Label
+            {
+                Text = "🔒 Internal Operations Use Only",
+                Font = Theme.FontSmall,
+                ForeColor = Color.FromArgb(148, 163, 184),
+                Dock = DockStyle.Top,
+                TextAlign = ContentAlignment.MiddleCenter
             };
 
             var lblOfflineNotice = new Label
             {
                 Text = "🟢 100% Offline (Local SQLite)",
-                Font = Theme.FontSmall,
-                ForeColor = Color.FromArgb(148, 163, 184),
-                Dock = DockStyle.Fill,
+                Font = new Font("Segoe UI", 7.5f, FontStyle.Regular),
+                ForeColor = Color.FromArgb(100, 116, 139),
+                Dock = DockStyle.Bottom,
                 TextAlign = ContentAlignment.MiddleCenter
             };
+
             sidebarFooter.Controls.Add(lblOfflineNotice);
+            sidebarFooter.Controls.Add(lblInternalUse);
+            sidebarFooter.Controls.Add(lblDeveloper);
             _sidebarPanel.Controls.Add(sidebarFooter);
 
             // Content Panel

@@ -145,3 +145,4 @@ E:\UPI fetcher from QR\tests\ZennX.AbbottUpiExtractor.Tests\obj\Debug\net8.0-win
 E:\UPI fetcher from QR\tests\ZennX.AbbottUpiExtractor.Tests\obj\Debug\net8.0-windows\ZennX.AbbottUpiExtractor.Tests.pdb
 E:\UPI fetcher from QR\tests\ZennX.AbbottUpiExtractor.Tests\obj\Debug\net8.0-windows\ZennX.AbbottUpiExtractor.Tests.genruntimeconfig.cache
 E:\UPI fetcher from QR\tests\ZennX.AbbottUpiExtractor.Tests\obj\Debug\net8.0-windows\ref\ZennX.AbbottUpiExtractor.Tests.dll
+E:\UPI fetcher from QR\tests\ZennX.AbbottUpiExtractor.Tests\obj\Debug\net8.0-windows\ZennX.AbbottUpiExtractor.Tests.sourcelink.json

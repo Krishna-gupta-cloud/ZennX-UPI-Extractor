@@ -44,7 +44,7 @@ namespace ZennX.AbbottUpiExtractor.UI.Views
 
             var specsTitle = new Label
             {
-                Text = "ZennX Abbott Cashback UPI Extractor v1.0.0",
+                Text = "ZennX Abbott Cashback UPI Extractor v1.0.0 — Developed by Krishna Gupta",
                 Font = Theme.FontSubheading,
                 ForeColor = Theme.ZennXBlueDark,
                 Location = new Point(16, 16),
@@ -53,7 +53,9 @@ namespace ZennX.AbbottUpiExtractor.UI.Views
 
             var specsBody = new Label
             {
-                Text = "• Framework: .NET 8.0 LTS (Self-Contained Windows Desktop x64 Release)\n" +
+                Text = "• Project Developer: Krishna Gupta\n" +
+                       "• Authorization: FOR INTERNAL OPERATIONS USE ONLY (Not for public distribution or cloud hosting)\n" +
+                       "• Framework: .NET 8.0 LTS (Self-Contained Windows Desktop x64 Release)\n" +
                        "• Local Database: SQLite (Zero configuration, stored in user LocalAppData)\n" +
                        "• Administrator Privileges: Not required. Operates completely in non-elevated user space.\n" +
                        "• Offline Verification: 100% offline. Zero remote API requests, telemetry, or third-party cloud connections.\n" +

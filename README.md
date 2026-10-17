@@ -1,6 +1,9 @@
 # ZennX-UPI-Extractor
 ## Production-Ready Windows Desktop Application — C# / .NET 8 LTS
 
+> **Developed by Krishna Gupta**  
+> **Notice:** This application is strictly for **internal purpose only**. Not authorized for public distribution, cloud deployment, or external use.
+
 A lightweight, offline-first native Windows desktop application built with C# and Windows Forms to extract, validate, deduplicate, review, and export UPI IDs from QR code images submitted by retailers for Abbott cashback processing.
 
 ### Key Capabilities

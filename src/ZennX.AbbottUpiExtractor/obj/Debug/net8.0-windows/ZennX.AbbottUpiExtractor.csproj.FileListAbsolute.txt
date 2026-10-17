@@ -56,3 +56,4 @@ E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Debug\net8.0-windows\ref
 E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Debug\net8.0-windows\ZennX.AbbottUpiExtractor.pdb
 E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Debug\net8.0-windows\ZennX.AbbottUpiExtractor.genruntimeconfig.cache
 E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Debug\net8.0-windows\ref\ZennX.AbbottUpiExtractor.dll
+E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Debug\net8.0-windows\ZennX.AbbottUpiExtractor.sourcelink.json
