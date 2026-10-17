@@ -1,3 +1,13 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Standalone and runtime publish output directories (keep publish/ if needed, or ignore build outputs)
+publish/win-x64-final/*.pdb
+publish/win-x64-app/
+
 # SQLite database files and journals
 *.db
 *.db-shm
@@ -8,3 +18,11 @@
 .vs/
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
+.idea/
+.vscode/
+
+# Test results and temporary files
+TestResults/
+*.trx
