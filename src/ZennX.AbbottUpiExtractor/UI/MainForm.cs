@@ -23,38 +23,45 @@ namespace ZennX.AbbottUpiExtractor.UI
             _db = new DatabaseService();
             _decoder = new QrDecoderService();
 
-            InitializeComponent();
+            InitializeLayout();
             InitializeViews();
             NavigateTo("Dashboard");
         }
 
-        private void InitializeComponent()
+        private void InitializeLayout()
         {
             Text = "ZennX Abbott Cashback UPI Extractor";
-            Size = new Size(1340, 840);
+            Size = new Size(1360, 860);
             MinimumSize = new Size(1100, 700);
             StartPosition = FormStartPosition.CenterScreen;
             BackColor = Theme.BgApp;
-            Icon = SystemIcons.Application;
             KeyPreview = true;
 
-            // Global shortcut handler (e.g. Ctrl+V redirects to paste QR)
+            try
+            {
+                string iconPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app.ico");
+                if (System.IO.File.Exists(iconPath))
+                {
+                    Icon = new Icon(iconPath);
+                }
+            }
+            catch { }
+
             KeyDown += MainForm_KeyDown;
 
-            // Sidebar Panel
+            // 1. Sidebar Panel (Left docked, fixed width 250px)
             _sidebarPanel = new Panel
             {
                 Dock = DockStyle.Left,
-                Width = 240,
-                BackColor = Theme.BgDarkSidebar,
-                Padding = new Padding(0)
+                Width = 250,
+                BackColor = Theme.BgDarkSidebar
             };
 
-            // Sidebar Header / Brand
+            // 1.A Brand Header
             var brandPanel = new Panel
             {
                 Dock = DockStyle.Top,
-                Height = 70,
+                Height = 72,
                 BackColor = Color.FromArgb(15, 20, 31)
             };
 
@@ -63,7 +70,7 @@ namespace ZennX.AbbottUpiExtractor.UI
                 Text = "ZennX",
                 Font = new Font("Segoe UI", 16f, FontStyle.Bold),
                 ForeColor = Theme.ZennXOrange,
-                Location = new Point(20, 12),
+                Location = new Point(18, 12),
                 AutoSize = true
             };
 
@@ -72,20 +79,62 @@ namespace ZennX.AbbottUpiExtractor.UI
                 Text = "Abbott Cashback Extractor",
                 Font = Theme.FontSmall,
                 ForeColor = Color.FromArgb(148, 163, 184),
-                Location = new Point(22, 40),
+                Location = new Point(20, 42),
                 AutoSize = true
             };
 
             brandPanel.Controls.Add(brandTitle);
             brandPanel.Controls.Add(brandSubtitle);
-            _sidebarPanel.Controls.Add(brandPanel);
 
-            // Nav buttons panel
+            // 1.B Sidebar Footer (Docked Bottom inside sidebar)
+            var sidebarFooter = new Panel
+            {
+                Dock = DockStyle.Bottom,
+                Height = 75,
+                BackColor = Color.FromArgb(15, 20, 31),
+                Padding = new Padding(10, 8, 10, 8)
+            };
+
+            var lblDeveloper = new Label
+            {
+                Text = "Developed by Krishna Gupta",
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Bold),
+                ForeColor = Theme.ZennXOrange,
+                Dock = DockStyle.Top,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Height = 20
+            };
+
+            var lblInternalUse = new Label
+            {
+                Text = "🔒 Internal Operations Use Only",
+                Font = Theme.FontSmall,
+                ForeColor = Color.FromArgb(148, 163, 184),
+                Dock = DockStyle.Top,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Height = 20
+            };
+
+            var lblOfflineNotice = new Label
+            {
+                Text = "🟢 100% Offline (Local SQLite)",
+                Font = new Font("Segoe UI", 7.5f, FontStyle.Regular),
+                ForeColor = Color.FromArgb(100, 116, 139),
+                Dock = DockStyle.Bottom,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Height = 18
+            };
+
+            sidebarFooter.Controls.Add(lblOfflineNotice);
+            sidebarFooter.Controls.Add(lblInternalUse);
+            sidebarFooter.Controls.Add(lblDeveloper);
+
+            // 1.C Nav Buttons Panel (Docked Fill in sidebar)
             var navContainer = new Panel
             {
                 Dock = DockStyle.Fill,
                 AutoScroll = true,
-                Padding = new Padding(8, 12, 8, 12)
+                Padding = new Padding(8, 10, 8, 10)
             };
 
             AddNavButton(navContainer, "Dashboard", "📊  Dashboard");
@@ -99,70 +148,33 @@ namespace ZennX.AbbottUpiExtractor.UI
             AddNavButton(navContainer, "SettingsHelp", "⚙️  Settings & Help");
 
             _sidebarPanel.Controls.Add(navContainer);
-            _sidebarPanel.Controls.SetChildIndex(brandPanel, 0);
-
-            // Sidebar Footer
-            var sidebarFooter = new Panel
-            {
-                Dock = DockStyle.Bottom,
-                Height = 65,
-                BackColor = Color.FromArgb(15, 20, 31),
-                Padding = new Padding(10, 6, 10, 6)
-            };
-
-            var lblDeveloper = new Label
-            {
-                Text = "Developed by Krishna Gupta",
-                Font = new Font("Segoe UI", 8.2f, FontStyle.Bold),
-                ForeColor = Theme.ZennXOrange,
-                Dock = DockStyle.Top,
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-
-            var lblInternalUse = new Label
-            {
-                Text = "🔒 Internal Operations Use Only",
-                Font = Theme.FontSmall,
-                ForeColor = Color.FromArgb(148, 163, 184),
-                Dock = DockStyle.Top,
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-
-            var lblOfflineNotice = new Label
-            {
-                Text = "🟢 100% Offline (Local SQLite)",
-                Font = new Font("Segoe UI", 7.5f, FontStyle.Regular),
-                ForeColor = Color.FromArgb(100, 116, 139),
-                Dock = DockStyle.Bottom,
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-
-            sidebarFooter.Controls.Add(lblOfflineNotice);
-            sidebarFooter.Controls.Add(lblInternalUse);
-            sidebarFooter.Controls.Add(lblDeveloper);
+            _sidebarPanel.Controls.Add(brandPanel);
             _sidebarPanel.Controls.Add(sidebarFooter);
 
-            // Content Panel
+            // 2. Main Content Panel (Docked Fill)
             _contentPanel = new Panel
             {
                 Dock = DockStyle.Fill,
                 BackColor = Theme.BgApp
             };
 
+            // CRITICAL WinForms Docking Order:
+            // Controls added last to Form.Controls get highest priority.
+            // Adding _contentPanel FIRST, then _sidebarPanel ensures _contentPanel fills remaining space properly.
             Controls.Add(_contentPanel);
             Controls.Add(_sidebarPanel);
         }
 
         private void AddNavButton(Panel parent, string key, string label)
         {
-            int top = _navButtons.Count * 46 + 12;
+            int top = _navButtons.Count * 46 + 10;
 
             var btn = new Button
             {
                 Text = label,
                 Tag = key,
                 Location = new Point(8, top),
-                Size = new Size(224, 40),
+                Size = new Size(218, 40),
                 FlatStyle = FlatStyle.Flat,
                 BackColor = Theme.BgDarkSidebar,
                 ForeColor = Color.FromArgb(203, 213, 225),
@@ -214,14 +226,16 @@ namespace ZennX.AbbottUpiExtractor.UI
                 }
             }
 
-            // Refresh view if needed
+            // Refresh view data
             if (targetView is DashboardView dv) dv.RefreshStats();
             else if (targetView is ResultsReviewView rv) rv.RefreshGrid();
             else if (targetView is BatchHistoryView bv) bv.RefreshBatches();
 
+            _contentPanel.SuspendLayout();
             _contentPanel.Controls.Clear();
             targetView.Dock = DockStyle.Fill;
             _contentPanel.Controls.Add(targetView);
+            _contentPanel.ResumeLayout(true);
         }
 
         private void MainForm_KeyDown(object? sender, KeyEventArgs e)
