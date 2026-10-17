@@ -1,0 +1,10 @@
+# SQLite database files and journals
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+
+# Visual Studio / IDE temporary files
+.vs/
+*.user
+*.suo
