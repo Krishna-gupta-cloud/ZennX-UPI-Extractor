@@ -93,14 +93,16 @@ namespace ZennX.AbbottUpiExtractor.UI
 
             brandPanel.Controls.Add(brandTitle);
             brandPanel.Controls.Add(brandSubtitle);
-            _sidebarPanel.Controls.Add(brandPanel);
 
-            // Nav buttons panel
-            var navContainer = new Panel
+            // Nav buttons container with FlowLayoutPanel to avoid absolute position and scroll clipping issues
+            var navContainer = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
                 AutoScroll = true,
-                Padding = new Padding(8, 12, 8, 12)
+                Padding = new Padding(8, 10, 8, 10),
+                BackColor = Theme.BgDarkSidebar
             };
 
             AddNavButton(navContainer, "Dashboard", "📊  Dashboard");
@@ -112,9 +114,6 @@ namespace ZennX.AbbottUpiExtractor.UI
             AddNavButton(navContainer, "Consolidate", "🔄  Cross-PC Reports");
             AddNavButton(navContainer, "BackupRestore", "💾  Backup & Restore");
             AddNavButton(navContainer, "SettingsHelp", "⚙️  Settings & Help");
-
-            _sidebarPanel.Controls.Add(navContainer);
-            _sidebarPanel.Controls.SetChildIndex(brandPanel, 0);
 
             // Sidebar Footer
             var sidebarFooter = new Panel
@@ -158,7 +157,16 @@ namespace ZennX.AbbottUpiExtractor.UI
             sidebarFooter.Controls.Add(lblOfflineNotice);
             sidebarFooter.Controls.Add(lblInternalUse);
             sidebarFooter.Controls.Add(lblDeveloper);
+
+            // In WinForms Docking:
+            // Controls added FIRST to Controls collection get lowest priority in Dock.Fill.
+            // Controls added LAST get highest priority.
+            // Adding DockStyle.Fill (navContainer) FIRST, then DockStyle.Top (brandPanel),
+            // then DockStyle.Bottom (sidebarFooter) ensures Top and Bottom reserve their space,
+            // and Fill occupies the space between them without clipping the top button!
+            _sidebarPanel.Controls.Add(navContainer);
             _sidebarPanel.Controls.Add(sidebarFooter);
+            _sidebarPanel.Controls.Add(brandPanel);
 
             // Content Panel
             _contentPanel = new Panel
@@ -171,16 +179,14 @@ namespace ZennX.AbbottUpiExtractor.UI
             Controls.Add(_sidebarPanel);
         }
 
-        private void AddNavButton(Panel parent, string key, string label)
+        private void AddNavButton(FlowLayoutPanel parent, string key, string label)
         {
-            int top = _navButtons.Count * 46 + 12;
-
             var btn = new Button
             {
                 Text = label,
                 Tag = key,
-                Location = new Point(8, top),
-                Size = new Size(224, 40),
+                Size = new Size(222, 42),
+                Margin = new Padding(0, 3, 0, 3),
                 FlatStyle = FlatStyle.Flat,
                 BackColor = Theme.BgDarkSidebar,
                 ForeColor = Color.FromArgb(203, 213, 225),
