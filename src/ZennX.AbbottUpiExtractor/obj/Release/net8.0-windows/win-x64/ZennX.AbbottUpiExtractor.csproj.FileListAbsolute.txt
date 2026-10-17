@@ -490,6 +490,7 @@ E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Release\net8.0-windows\w
 E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Release\net8.0-windows\win-x64\ZennX.AbbottUpiExtractor.pdb
 E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Release\net8.0-windows\win-x64\ZennX.AbbottUpiExtractor.genruntimeconfig.cache
 E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Release\net8.0-windows\win-x64\ref\ZennX.AbbottUpiExtractor.dll
-E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Release\net8.0-windows\win-x64\ZennX.AbbottUpiExtractor.sourcelink.json
 E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Release\net8.0-windows\win-x64\ZennX.AbbottUpiExtractor.UI.MainForm.resources
 E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Release\net8.0-windows\win-x64\ZennX.AbbottUpiExtractor.csproj.GenerateResource.cache
+E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\obj\Release\net8.0-windows\win-x64\ZennX.AbbottUpiExtractor.sourcelink.json
+E:\UPI fetcher from QR\src\ZennX.AbbottUpiExtractor\bin\Release\net8.0-windows\win-x64\ZennX AC Logo RCS.ico

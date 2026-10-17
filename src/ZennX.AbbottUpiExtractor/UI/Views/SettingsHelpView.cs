@@ -54,7 +54,7 @@ namespace ZennX.AbbottUpiExtractor.UI.Views
             var specsBody = new Label
             {
                 Text = "• Project Developer: Krishna Gupta\n" +
-                       "• Authorization: FOR INTERNAL OPERATIONS USE ONLY (Not for public distribution or cloud hosting)\n" +
+                       "• Notice: FOR INTERNAL OPERATIONS USE ONLY (Not for public distribution or cloud deployment)\n" +
                        "• Framework: .NET 8.0 LTS (Self-Contained Windows Desktop x64 Release)\n" +
                        "• Local Database: SQLite (Zero configuration, stored in user LocalAppData)\n" +
                        "• Administrator Privileges: Not required. Operates completely in non-elevated user space.\n" +

@@ -1,4 +1,5 @@
 E:\UPI fetcher from QR\publish\win-x64-v1\ZennX.AbbottUpiExtractor.exe
+E:\UPI fetcher from QR\publish\win-x64-v1\ZennX AC Logo RCS.ico
 E:\UPI fetcher from QR\publish\win-x64-v1\ZennX.AbbottUpiExtractor.dll
 E:\UPI fetcher from QR\publish\win-x64-v1\ZennX.AbbottUpiExtractor.deps.json
 E:\UPI fetcher from QR\publish\win-x64-v1\ZennX.AbbottUpiExtractor.runtimeconfig.json
